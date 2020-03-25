@@ -93,11 +93,11 @@ module "alerting" {
 | action\_group\_webhooks | Map of Webhooks to notify. Example: `{ PagerDuty = 'https://events.pagerduty.com/integration/abcdefgh12345azerty/enqueue' }` | `map(string)` | `{}` | no |
 | activity\_log\_alerts | Map of Activity log Alerts | `any` | `{}` | no |
 | client\_name | Client name/account used in naming | `string` | n/a | yes |
-| custom\_action\_group\_name | Optional custom Action Group name | `string` | `null` | no |
+| custom\_action\_group\_name | Optional custom Action Group name | `string` | `"null"` | no |
 | environment | Project environment | `string` | n/a | yes |
 | extra\_tags | Extra tags to set on each created resource. | `map(string)` | `{}` | no |
 | location\_short | Short string for Azure location. | `string` | n/a | yes |
-| name\_prefix | Optional prefix for subnet names | `string` | `""` | no |
+| name\_prefix | Optional prefix for resources names | `string` | `""` | no |
 | resource\_group\_name | Resource group name | `string` | n/a | yes |
 | stack | Project stack name | `string` | n/a | yes |
 

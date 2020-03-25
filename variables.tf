@@ -9,7 +9,7 @@ variable "client_name" {
 }
 
 variable "name_prefix" {
-  description = "Optional prefix for subnet names"
+  description = "Optional prefix for resources names"
   type        = string
   default     = ""
 }
