@@ -75,6 +75,17 @@ module "alerting" {
         level    = "Error"
       }
     }
+    
+    "advisor" = {
+      custom_name         = "${var.stack}-global-advisor-alerts"
+      description         = "Advisor global Subscription alerts"
+      resource_group_name = module.rg.resource_group_name
+      scopes              = [format("/subscriptions/%s", var.azure_subscription_id)]
+      criteria = {
+        category = "Recommendation"
+        level    = "Informational"   
+      }
+    }
   }
 
   extra_tags = {
@@ -115,3 +126,4 @@ Terraform resource documentation: [terraform.io/docs/providers/azurerm/r/monitor
 
 Microsoft Azure documentation: 
   - [Activity Log alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log)
+  - [Activity Log view](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log-view#azure-portal)
