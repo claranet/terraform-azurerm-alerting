@@ -131,5 +131,5 @@ Microsoft Azure documentation:
 
 ## Github Issue
 
-Additional fields for Service Health (Regions and Services) :
+Additional fields for Service Health (Regions and Services):
 https://github.com/terraform-providers/terraform-provider-azurerm/issues/2996
