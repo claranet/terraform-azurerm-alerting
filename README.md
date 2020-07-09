@@ -129,7 +129,6 @@ Microsoft Azure documentation:
   - [Activity Log view](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-log-view#azure-portal)
   - [Activity Log PagerDuty](https://docs.microsoft.com/en-us/azure/service-health/service-health-alert-webhook-pagerduty)
 
-## Github Issue
+## Github issues
 
-Additional fields for Service Health (Regions and Services):
-https://github.com/terraform-providers/terraform-provider-azurerm/issues/2996
+Additional fields for Service Health (Regions and Services): [https://github.com/terraform-providers/terraform-provider-azurerm/issues/2996](https://github.com/terraform-providers/terraform-provider-azurerm/issues/2996)
