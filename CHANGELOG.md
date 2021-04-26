@@ -1,3 +1,11 @@
+# v4.1.0 - unrelased
+
+Added:
+  * [GITHUB-1](https://github.com/claranet/terraform-azurerm-alerting/issues/1): `service_health` variable to populated the new available block
+
+Breaking
+  * [GITHUB-1](https://github.com/claranet/terraform-azurerm-alerting/issues/1): AzureRM provider `v2.56.0` minimum version required, it fixes the issue with `service_health` block
+
 # v3.0.1/v4.0.0 - 2020-10-20
 
 Changed

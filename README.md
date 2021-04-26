@@ -99,18 +99,19 @@ module "alerting" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | action\_group\_emails | Map of Emails to notify. Example: `{ ml-devops = devops@contoso.com }` | `map(string)` | `{}` | no |
 | action\_group\_short\_name | Action Group short name | `string` | n/a | yes |
 | action\_group\_webhooks | Map of Webhooks to notify. Example: `{ PagerDuty = 'https://events.pagerduty.com/integration/abcdefgh12345azerty/enqueue' }` | `map(string)` | `{}` | no |
 | activity\_log\_alerts | Map of Activity log Alerts | `any` | `{}` | no |
 | client\_name | Client name/account used in naming | `string` | n/a | yes |
-| custom\_action\_group\_name | Optional custom Action Group name | `string` | `"null"` | no |
+| custom\_action\_group\_name | Optional custom Action Group name | `string` | `null` | no |
 | environment | Project environment | `string` | n/a | yes |
 | extra\_tags | Extra tags to set on each created resource. | `map(string)` | `{}` | no |
 | location\_short | Short string for Azure location. | `string` | n/a | yes |
 | name\_prefix | Optional prefix for resources names | `string` | `""` | no |
 | resource\_group\_name | Resource group name | `string` | n/a | yes |
+| service\_health | A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert"<pre>{<br>  events    = "Incident"<br>  locations = "Global"<br>  service   = null<br>}</pre> | `map(string)` | `null` | no |
 | stack | Project stack name | `string` | n/a | yes |
 
 ## Outputs
@@ -132,4 +133,6 @@ Microsoft Azure documentation:
 
 ## Github issues
 
-Additional fields for Service Health (Regions and Services): [https://github.com/terraform-providers/terraform-provider-azurerm/issues/2996](https://github.com/terraform-providers/terraform-provider-azurerm/issues/2996)
+~~Additional fields for Service Health (Regions and Services): [https://github.com/terraform-providers/terraform-provider-azurerm/issues/2996](https://github.com/terraform-providers/terraform-provider-azurerm/issues/2996)~~
+
+This is fixed now with AzureRM provider `v2.56.0`: [`azurerm_monitor_activity_log_alert` - support for `service_health` (#10978)](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#2560-april-15-2021)
