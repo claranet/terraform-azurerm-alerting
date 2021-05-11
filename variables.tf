@@ -63,3 +63,18 @@ variable "activity_log_alerts" {
   type        = any
   default     = {}
 }
+
+variable "service_health" {
+  description = <<EOD
+A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert"
+```
+{
+  events    = "Incident"
+  locations = "Global"
+  service   = null
+}
+```
+EOD
+  type        = map(string)
+  default     = null
+}
