@@ -1,4 +1,4 @@
-# v4.1.0 - unrelased
+# v4.1.0 - 2021-05-11
 
 Added:
   * [GITHUB-1](https://github.com/claranet/terraform-azurerm-alerting/issues/1): `service_health` variable to populated the new available block
