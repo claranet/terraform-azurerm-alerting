@@ -9,7 +9,8 @@ This module handles alerts of type:
 ## Version compatibility
 
 | Module version | Terraform version | AzureRM version |
-|----------------|-------------------| --------------- |
+| -------------- | ----------------- | --------------- |
+| >= 5.x.x       | 0.15.x & 1.0.x    | >= 2.0          |
 | >= 4.x.x       | 0.13.x            | >= 2.0          |
 | >= 3.x.x       | 0.12.x            | >= 2.0          |
 | >= 2.x.x       | 0.12.x            | < 2.0           |
@@ -96,6 +97,24 @@ module "alerting" {
 
 ```
 
+<!-- BEGIN_TF_DOCS -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | >= 2.56 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_monitor_action_group.action_group_notification](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_action_group) | resource |
+| [azurerm_monitor_activity_log_alert.activity_log_alert](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert) | resource |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -121,7 +140,7 @@ module "alerting" {
 | action\_group\_id | Notification Action Group ID |
 | action\_group\_name | Notification Action Group name |
 | activity\_log\_alerts | Activity log alerts attributes |
-
+<!-- END_TF_DOCS -->
 ## Related documentation
 
 Terraform resource documentation: [terraform.io/docs/providers/azurerm/r/monitor_activity_log_alert.html](https://www.terraform.io/docs/providers/azurerm/r/monitor_activity_log_alert.html)
