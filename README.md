@@ -6,7 +6,8 @@ with an [Action Group](https://docs.microsoft.com/en-us/azure/azure-monitor/plat
 This module handles alerts of type:
   - [Activity Log alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log)
 
-## Version compatibility
+<!-- BEGIN_TF_DOCS -->
+## Global versionning rule for Claranet Azure modules
 
 | Module version | Terraform version | AzureRM version |
 | -------------- | ----------------- | --------------- |
@@ -23,7 +24,7 @@ which set some terraform variables in the environment needed by this module.
 More details about variables set by the `terraform-wrapper` available in the [documentation](https://github.com/claranet/terraform-wrapper#environment).
 
 ```hcl
-module "azure-region" {
+module "azure_region" {
   source  = "claranet/regions/azurerm"
   version = "x.x.x"
 
@@ -34,7 +35,7 @@ module "rg" {
   source  = "claranet/rg/azurerm"
   version = "x.x.x"
 
-  location    = module.azure-region.location
+  location    = module.azure_region.location
   client_name = var.client_name
   environment = var.environment
   stack       = var.stack
@@ -44,7 +45,7 @@ module "alerting" {
   source  = "claranet/alerting/azurerm"
   version = "x.x.x"
 
-  location_short = module.azure-region.location_short
+  location_short = module.azure_region.location_short
   client_name    = var.client_name
   environment    = var.environment
   stack          = var.stack
@@ -77,7 +78,7 @@ module "alerting" {
         level    = "Error"
       }
     }
-    
+
     "advisor" = {
       custom_name         = "${var.stack}-global-advisor-alerts"
       description         = "Advisor global Subscription alerts"
@@ -85,7 +86,7 @@ module "alerting" {
       scopes              = [format("/subscriptions/%s", var.azure_subscription_id)]
       criteria = {
         category = "Recommendation"
-        level    = "Informational"   
+        level    = "Informational"
       }
     }
   }
@@ -97,7 +98,6 @@ module "alerting" {
 
 ```
 
-<!-- BEGIN_TF_DOCS -->
 ## Providers
 
 | Name | Version |
@@ -142,8 +142,6 @@ No modules.
 | activity\_log\_alerts | Activity log alerts attributes |
 <!-- END_TF_DOCS -->
 ## Related documentation
-
-Terraform resource documentation: [terraform.io/docs/providers/azurerm/r/monitor_activity_log_alert.html](https://www.terraform.io/docs/providers/azurerm/r/monitor_activity_log_alert.html)
 
 Microsoft Azure documentation: 
   - [Activity Log alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log)
