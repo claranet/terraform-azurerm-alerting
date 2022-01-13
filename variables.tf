@@ -24,12 +24,6 @@ variable "stack" {
   type        = string
 }
 
-variable "extra_tags" {
-  description = "Extra tags to set on each created resource."
-  type        = map(string)
-  default     = {}
-}
-
 variable "resource_group_name" {
   description = "Resource group name"
   type        = string

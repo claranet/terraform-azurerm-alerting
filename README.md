@@ -125,6 +125,7 @@ No modules.
 | activity\_log\_alerts | Map of Activity log Alerts | `any` | `{}` | no |
 | client\_name | Client name/account used in naming | `string` | n/a | yes |
 | custom\_action\_group\_name | Optional custom Action Group name | `string` | `null` | no |
+| default\_tags\_enabled | Option to enable or disable default tags. | `bool` | `true` | no |
 | environment | Project environment | `string` | n/a | yes |
 | extra\_tags | Extra tags to set on each created resource. | `map(string)` | `{}` | no |
 | location\_short | Short string for Azure location. | `string` | n/a | yes |
