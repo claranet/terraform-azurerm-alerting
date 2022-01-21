@@ -1,5 +1,5 @@
 resource "azurerm_monitor_action_group" "action_group_notification" {
-  name                = coalesce(var.custom_action_group_name, format("%s-actiongroup", local.default_name))
+  name                = local.action_group_name
   resource_group_name = var.resource_group_name
   short_name          = var.action_group_short_name
 

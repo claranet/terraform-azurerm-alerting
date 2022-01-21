@@ -8,12 +8,6 @@ variable "client_name" {
   type        = string
 }
 
-variable "name_prefix" {
-  description = "Optional prefix for resources names"
-  type        = string
-  default     = ""
-}
-
 variable "environment" {
   description = "Project environment"
   type        = string
@@ -27,17 +21,6 @@ variable "stack" {
 variable "resource_group_name" {
   description = "Resource group name"
   type        = string
-}
-
-variable "action_group_short_name" {
-  description = "Action Group short name"
-  type        = string
-}
-
-variable "custom_action_group_name" {
-  description = "Optional custom Action Group name"
-  type        = string
-  default     = null
 }
 
 variable "action_group_webhooks" {
