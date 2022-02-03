@@ -1,5 +1,5 @@
 resource "azurerm_monitor_action_group" "action_group_notification" {
-  name                = coalesce(var.custom_action_group_name, format("%s-actiongroup", local.default_name))
+  name                = local.action_group_name
   resource_group_name = var.resource_group_name
   short_name          = var.action_group_short_name
 
@@ -28,7 +28,7 @@ resource "azurerm_monitor_action_group" "action_group_notification" {
 resource "azurerm_monitor_activity_log_alert" "activity_log_alert" {
   for_each = var.activity_log_alerts
 
-  name        = lookup(each.value, "custom_name", format("%s-%s-alert", local.default_name, each.key))
+  name        = lookup(each.value, "custom_name", azurecaf_name.alert[each.key].result)
   description = each.value.description
 
   resource_group_name = lookup(each.value, "resource_group_name", var.resource_group_name)
