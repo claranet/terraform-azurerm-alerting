@@ -1,4 +1,4 @@
-resource "azurecaf_name" "action_group" {
+data "azurecaf_name" "action_group" {
   name          = var.stack
   resource_type = "azurerm_monitor_action_group"
   prefixes      = var.name_prefix == "" ? null : [local.name_prefix]
@@ -9,7 +9,7 @@ resource "azurecaf_name" "action_group" {
 }
 
 # Custom naming until managed by CAF provider
-resource "azurecaf_name" "alert" {
+data "azurecaf_name" "alert" {
   for_each = var.activity_log_alerts
 
   name          = var.stack

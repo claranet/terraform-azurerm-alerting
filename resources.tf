@@ -28,7 +28,7 @@ resource "azurerm_monitor_action_group" "action_group_notification" {
 resource "azurerm_monitor_activity_log_alert" "activity_log_alert" {
   for_each = var.activity_log_alerts
 
-  name        = lookup(each.value, "custom_name", azurecaf_name.alert[each.key].result)
+  name        = lookup(each.value, "custom_name", data.azurecaf_name.alert[each.key].result)
   description = each.value.description
 
   resource_group_name = lookup(each.value, "resource_group_name", var.resource_group_name)
