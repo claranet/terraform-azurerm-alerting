@@ -123,21 +123,21 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| action\_group\_emails | Map of Emails to notify. Example: `{ ml-devops = devops@contoso.com }` | `map(string)` | `{}` | no |
+| action\_group\_emails | Map of Emails to notify. Example: `{ ml-devops = devops@contoso.com }`. | `map(string)` | `{}` | no |
 | action\_group\_short\_name | Action Group short name | `string` | n/a | yes |
-| action\_group\_webhooks | Map of Webhooks to notify. Example: `{ PagerDuty = 'https://events.pagerduty.com/integration/abcdefgh12345azerty/enqueue' }` | `map(string)` | `{}` | no |
-| activity\_log\_alerts | Map of Activity log Alerts | `any` | `{}` | no |
-| client\_name | Client name/account used in naming | `string` | n/a | yes |
+| action\_group\_webhooks | Map of Webhooks to notify. Example: `{ PagerDuty = 'https://events.pagerduty.com/integration/abcdefgh12345azerty/enqueue' }`. | `map(string)` | `{}` | no |
+| activity\_log\_alerts | Map of Activity log Alerts. | <pre>map(object({<br>    description         = optional(string)<br>    custom_name         = optional(string)<br>    resource_group_name = optional(string)<br>    scopes              = list(string)<br>    criteria = object({<br>      operation_name = optional(string)<br>      category       = optional(string, "Recommendation")<br>      level          = optional(string, "Error")<br><br>      resource_provider = optional(string)<br>      resource_type     = optional(string)<br>      resource_group    = optional(string)<br>      resource_id       = optional(string)<br>    })<br>  }))</pre> | `{}` | no |
+| client\_name | Client name/account used in naming. | `string` | n/a | yes |
 | custom\_action\_group\_name | Optional custom Action Group name | `string` | `null` | no |
 | default\_tags\_enabled | Option to enable or disable default tags. | `bool` | `true` | no |
-| environment | Project environment | `string` | n/a | yes |
+| environment | Project environment. | `string` | n/a | yes |
 | extra\_tags | Extra tags to set on each created resource. | `map(string)` | `{}` | no |
 | location\_short | Short string for Azure location. | `string` | n/a | yes |
 | name\_prefix | Optional prefix for the generated name | `string` | `""` | no |
 | name\_suffix | Optional suffix for the generated name | `string` | `""` | no |
-| resource\_group\_name | Resource group name | `string` | n/a | yes |
-| service\_health | A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert"<pre>{<br>  events    = "Incident"<br>  locations = "Global"<br>  service   = null<br>}</pre> | `map(string)` | `null` | no |
-| stack | Project stack name | `string` | n/a | yes |
+| resource\_group\_name | Resource group name. | `string` | n/a | yes |
+| service\_health | A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert | <pre>object({<br>    events    = optional(string, "Incident")<br>    locations = optional(string, "Global")<br>    services  = optional(string)<br>  })</pre> | `null` | no |
+| stack | Project stack name. | `string` | n/a | yes |
 | use\_caf\_naming | Use the Azure CAF naming provider to generate default resource name. `custom_action_group_name` override this if set. Legacy default name is used if this is set to `false`. | `bool` | `true` | no |
 
 ## Outputs
