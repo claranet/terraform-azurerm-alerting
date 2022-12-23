@@ -28,28 +28,28 @@ resource "azurerm_monitor_action_group" "action_group_notification" {
 resource "azurerm_monitor_activity_log_alert" "activity_log_alert" {
   for_each = var.activity_log_alerts
 
-  name        = lookup(each.value, "custom_name", data.azurecaf_name.alert[each.key].result)
+  name        = coalesce(each.value.custom_name, data.azurecaf_name.alert[each.key].result)
   description = each.value.description
 
-  resource_group_name = lookup(each.value, "resource_group_name", var.resource_group_name)
+  resource_group_name = coalesce(each.value.resource_group_name, var.resource_group_name)
   scopes              = each.value.scopes
 
   criteria {
-    operation_name = lookup(each.value.criteria, "operation_name", null)
-    category       = lookup(each.value.criteria, "category", "Recommendation")
-    level          = lookup(each.value.criteria, "level", "Error")
+    operation_name = each.value.criteria.operation_name
+    category       = each.value.criteria.category
+    level          = each.value.criteria.level
 
-    resource_provider = lookup(each.value.criteria, "resource_provider", null)
-    resource_type     = lookup(each.value.criteria, "resource_type", null)
-    resource_group    = lookup(each.value.criteria, "resource_group", null)
-    resource_id       = lookup(each.value.criteria, "resource_id", null)
+    resource_provider = each.value.criteria.resource_provider
+    resource_type     = each.value.criteria.resource_type
+    resource_group    = each.value.criteria.resource_group
+    resource_id       = each.value.criteria.resource_id
 
     dynamic "service_health" {
-      for_each = var.service_health == null ? [] : [1]
+      for_each = var.service_health == null ? [] : ["enabled"]
       content {
-        events    = lookup(var.service_health, "events", "Incident")
-        locations = lookup(var.service_health, "locations", "Global")
-        services  = lookup(var.service_health, "services", null)
+        events    = var.service_health.events
+        locations = var.service_health.locations
+        services  = var.service_health.services
       }
     }
   }

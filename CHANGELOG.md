@@ -1,3 +1,11 @@
+# Unreleased
+
+Breaking
+  * AZ-840: Require Terraform 1.3+
+
+Changed
+  * AZ-840: Replace `any` types by `objects` on variables
+
 # v5.1.0 - 2022-11-23
 
 Changed
