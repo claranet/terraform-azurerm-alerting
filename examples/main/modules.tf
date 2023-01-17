@@ -63,6 +63,19 @@ module "alerting" {
         level    = "Informational"
       }
     }
+
+    "managed-disks" = {
+      custom_name         = "${var.stack}-global-managed-disks-alerts"
+      description         = "Azure disks movements alerts"
+      resource_group_name = module.rg.resource_group_name
+      scopes              = [format("/subscriptions/%s", var.azure_subscription_id)]
+      criteria = {
+        category      = "Administrative"
+        resource_type = "Microsoft.Compute/disks"
+        level         = "Informational"
+        status        = "Succeeded"
+      }
+    }
   }
 
   extra_tags = {
