@@ -46,6 +46,7 @@ variable "activity_log_alerts" {
       operation_name = optional(string)
       category       = optional(string, "Recommendation")
       level          = optional(string, "Error")
+      status         = optional(string)
 
       resource_provider = optional(string)
       resource_type     = optional(string)

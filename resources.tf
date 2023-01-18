@@ -38,6 +38,7 @@ resource "azurerm_monitor_activity_log_alert" "activity_log_alert" {
     operation_name = each.value.criteria.operation_name
     category       = each.value.criteria.category
     level          = each.value.criteria.level
+    status         = each.value.criteria.status
 
     resource_provider = each.value.criteria.resource_provider
     resource_type     = each.value.criteria.resource_type
