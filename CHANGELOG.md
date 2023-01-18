@@ -1,4 +1,4 @@
-# Unreleased
+# v7.1.0 - 2023-01-18
 
 Added
   * AZ-979: Add missing `status` parameter for activity log alert resource
