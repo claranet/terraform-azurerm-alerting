@@ -1,3 +1,8 @@
+# Unreleased
+
+Changed
+  * GH-1: Add support for metric alerts
+
 # v7.1.0 - 2023-01-18
 
 Added
