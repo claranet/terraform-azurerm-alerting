@@ -1,4 +1,4 @@
-# Unreleased
+# v7.2.0 - 2023-02-03
 
 Changed
   * [GITHUB-2](https://github.com/claranet/terraform-azurerm-alerting/pull/2): Add support for metric alerts
