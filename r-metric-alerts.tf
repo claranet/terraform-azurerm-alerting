@@ -18,7 +18,7 @@ resource "azurerm_monitor_metric_alert" "metric_alert" {
   target_resource_location = each.value.target_resource_location
 
   dynamic "criteria" {
-    for_each = { for c in each.value.criteria : c.metric_name => c }
+    for_each = each.value.criteria
 
     content {
       metric_namespace = criteria.value.metric_namespace
@@ -42,7 +42,7 @@ resource "azurerm_monitor_metric_alert" "metric_alert" {
   }
 
   dynamic "dynamic_criteria" {
-    for_each = { for c in each.value.dynamic_criteria : c.metric_name => c }
+    for_each = each.value.dynamic_criteria
     content {
       metric_namespace = dynamic_criteria.value.metric_namespace
       metric_name      = dynamic_criteria.value.metric_name
@@ -58,7 +58,7 @@ resource "azurerm_monitor_metric_alert" "metric_alert" {
       skip_metric_validation = dynamic_criteria.value.skip_metric_validation
 
       dynamic "dimension" {
-        for_each = { for d in dynamic_criteria.value.dimension : d.name => d }
+        for_each = dynamic_criteria.value.dimension
         content {
           name     = dimension.value.name
           operator = dimension.value.operator

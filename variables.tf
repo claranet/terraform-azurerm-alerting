@@ -82,7 +82,7 @@ variable "metric_alerts" {
     target_resource_type     = optional(string, null)
     target_resource_location = optional(string, null)
 
-    tags = optional(map(any), {})
+    tags = optional(map(string), {})
 
     criteria = optional(list(object({
       metric_namespace       = string
