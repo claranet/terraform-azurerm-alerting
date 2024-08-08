@@ -12,3 +12,8 @@ output "activity_log_alerts" {
   description = "Activity log alerts attributes."
   value       = azurerm_monitor_activity_log_alert.activity_log_alert
 }
+
+output "metric_alerts" {
+  description = "Metric alerts attributes."
+  value       = azurerm_monitor_metric_alert.metric_alert
+}
