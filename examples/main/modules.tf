@@ -78,6 +78,21 @@ module "alerting" {
     }
   }
 
+  metric_alerts = {
+    "cpu-usage" = {
+      description         = "CPU usage alert"
+      resource_group_name = module.rg.resource_group_name
+      scopes              = [format("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/virtualMachines/%s", var.azure_subscription_id, module.rg.resource_group_name, "myVM")]
+      criteria = {
+        metric_namespace = "Microsoft.Compute/virtualMachines"
+        metric_name      = "Percentage CPU"
+        aggregation      = "Total"
+        operator         = "GreaterThan"
+        threshold        = 80
+      }
+    }
+  }
+
   extra_tags = {
     purpose = "alerting testing"
   }
