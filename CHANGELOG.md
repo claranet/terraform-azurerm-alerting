@@ -1,3 +1,56 @@
+## 7.2.1 (2024-08-09)
+
+
+### Bug Fixes
+
+* **GH-3:** add missing metric alerts output 0287391
+
+
+### Documentation
+
+* **GH-3:** update README and example 8a1c26f
+
+
+### Continuous Integration
+
+* **AZ-1391:** enable semantic-release [skip ci] 0ffeb69
+* **AZ-1391:** update semantic-release config [skip ci] de388c4
+
+
+### Miscellaneous Chores
+
+* **deps:** add renovate.json 3a74a53
+* **deps:** enable automerge on renovate 20bcd2e
+* **deps:** update dependency opentofu to v1.7.0 81ca05b
+* **deps:** update dependency opentofu to v1.7.1 0a57cf0
+* **deps:** update dependency opentofu to v1.7.2 e814c77
+* **deps:** update dependency opentofu to v1.7.3 70e63d7
+* **deps:** update dependency opentofu to v1.8.0 173b12d
+* **deps:** update dependency opentofu to v1.8.1 a0e47e9
+* **deps:** update dependency pre-commit to v3.7.1 ea013f8
+* **deps:** update dependency pre-commit to v3.8.0 57cd31c
+* **deps:** update dependency terraform-docs to v0.18.0 4a8b103
+* **deps:** update dependency tflint to v0.51.0 7c39cbe
+* **deps:** update dependency tflint to v0.51.1 a9d3a41
+* **deps:** update dependency tflint to v0.51.2 2e9888f
+* **deps:** update dependency tflint to v0.52.0 01124dd
+* **deps:** update dependency trivy to v0.50.2 43baf9e
+* **deps:** update dependency trivy to v0.50.4 70fbbb0
+* **deps:** update dependency trivy to v0.51.0 7bdb177
+* **deps:** update dependency trivy to v0.51.1 af06a70
+* **deps:** update dependency trivy to v0.51.2 a11a428
+* **deps:** update dependency trivy to v0.51.3 2c4e3be
+* **deps:** update dependency trivy to v0.51.4 9807fe4
+* **deps:** update dependency trivy to v0.52.0 1ccc7d2
+* **deps:** update dependency trivy to v0.52.1 15ee73c
+* **deps:** update dependency trivy to v0.52.2 392f8ca
+* **deps:** update dependency trivy to v0.53.0 11c0c60
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.92.0 472b7f8
+* **deps:** update renovate.json 3f40885
+* **deps:** update tools 6125c67
+* **pre-commit:** update commitlint hook 888bdfb
+* **release:** remove legacy `VERSION` file e8a17f9
+
 # v7.2.0 - 2023-02-03
 
 Changed
