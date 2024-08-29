@@ -138,8 +138,8 @@ module "alerting" {
 
 | Name | Version |
 |------|---------|
-| azurecaf | ~> 1.2, >= 1.2.22 |
-| azurerm | >= 2.56 |
+| azurecaf | ~> 1.2.28 |
+| azurerm | ~> 3.0 |
 
 ## Modules
 
