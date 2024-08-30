@@ -1,3 +1,16 @@
+## 7.2.2 (2024-08-30)
+
+### Bug Fixes
+
+* pin AzureRM provider to v3 a899e09
+
+### Miscellaneous Chores
+
+* **deps:** update dependency tflint to v0.53.0 a9160b5
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.17.0 65d6146
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.92.2 69371b5
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.94.0 974ad68
+
 ## 7.2.1 (2024-08-09)
 
 
