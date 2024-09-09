@@ -1,3 +1,13 @@
+variable "location" {
+  description = "Azure location."
+  type        = string
+  default     = "global"
+  validation {
+    condition     = contains(["global", "northeurope", "westeurope"], var.location)
+    error_message = "Location must be one of: global, northeurope, westeurope"
+  }
+}
+
 variable "location_short" {
   description = "Short string for Azure location."
   type        = string

@@ -4,6 +4,7 @@ resource "azurerm_monitor_activity_log_alert" "activity_log_alert" {
   name        = coalesce(each.value.custom_name, data.azurecaf_name.activity_log_alerts[each.key].result)
   description = each.value.description
 
+  location            = var.location
   resource_group_name = coalesce(each.value.resource_group_name, var.resource_group_name)
   scopes              = each.value.scopes
 
