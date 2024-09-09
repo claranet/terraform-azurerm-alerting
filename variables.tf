@@ -60,9 +60,9 @@ variable "activity_log_alerts" {
 variable "service_health" {
   description = "A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert"
   type = object({
-    events    = optional(string, "Incident")
-    locations = optional(string, "Global")
-    services  = optional(string)
+    events    = optional(list(string), ["Incident"])
+    locations = optional(list(string), ["Global"])
+    services  = optional(list(string))
   })
   default = null
 }

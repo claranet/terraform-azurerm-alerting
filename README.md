@@ -174,7 +174,7 @@ No modules.
 | name\_prefix | Optional prefix for the generated name | `string` | `""` | no |
 | name\_suffix | Optional suffix for the generated name | `string` | `""` | no |
 | resource\_group\_name | Resource group name. | `string` | n/a | yes |
-| service\_health | A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert | <pre>object({<br>    events    = optional(string, "Incident")<br>    locations = optional(string, "Global")<br>    services  = optional(string)<br>  })</pre> | `null` | no |
+| service\_health | A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert | <pre>object({<br>    events    = optional(list(string), ["Incident"])<br>    locations = optional(list(string), ["Global"])<br>    services  = optional(list(string))<br>  })</pre> | `null` | no |
 | stack | Project stack name. | `string` | n/a | yes |
 | use\_caf\_naming | Use the Azure CAF naming provider to generate default resource name. `custom_action_group_name` override this if set. Legacy default name is used if this is set to `false`. | `bool` | `true` | no |
 
