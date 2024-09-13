@@ -117,14 +117,18 @@ module "alerting" {
     "cpu-usage" = {
       description         = "CPU usage alert"
       resource_group_name = module.rg.resource_group_name
-      scopes              = [format("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/virtualMachines/%s", var.azure_subscription_id, module.rg.resource_group_name, "myVM")]
-      criteria = [{
-        metric_namespace = "Microsoft.Compute/virtualMachines"
-        metric_name      = "Percentage CPU"
-        aggregation      = "Total"
-        operator         = "GreaterThan"
-        threshold        = 80
-      }]
+      scopes = [
+        format("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/virtualMachines/%s", var.azure_subscription_id, module.rg.resource_group_name, "myVM")
+      ]
+      criteria = [
+        {
+          metric_namespace = "Microsoft.Compute/virtualMachines"
+          metric_name      = "Percentage CPU"
+          aggregation      = "Total"
+          operator         = "GreaterThan"
+          threshold        = 80
+        }
+      ]
     }
   }
 
@@ -139,7 +143,7 @@ module "alerting" {
 | Name | Version |
 |------|---------|
 | azurecaf | ~> 1.2.28 |
-| azurerm | ~> 3.0 |
+| azurerm | ~> 3.100 |
 
 ## Modules
 
@@ -171,10 +175,11 @@ No modules.
 | extra\_tags | Extra tags to set on each created resource. | `map(string)` | `{}` | no |
 | location\_short | Short string for Azure location. | `string` | n/a | yes |
 | metric\_alerts | Map of metric Alerts | <pre>map(object({<br>    custom_name              = optional(string, null)<br>    description              = optional(string, null)<br>    resource_group_name      = optional(string)<br>    scopes                   = optional(list(string), [])<br>    enabled                  = optional(bool, true)<br>    auto_mitigate            = optional(bool, true)<br>    severity                 = optional(number, 3)<br>    frequency                = optional(string, "PT5M")<br>    window_size              = optional(string, "PT5M")<br>    target_resource_type     = optional(string, null)<br>    target_resource_location = optional(string, null)<br><br>    tags = optional(map(string), {})<br><br>    criteria = optional(list(object({<br>      metric_namespace       = string<br>      metric_name            = string<br>      aggregation            = string<br>      operator               = string<br>      threshold              = number<br>      skip_metric_validation = optional(bool, false)<br>      dimension = optional(list(object({<br>        name     = string<br>        operator = optional(string, "Include")<br>        values   = list(string)<br>      })), [])<br>    })), [])<br><br>    dynamic_criteria = optional(list(object({<br>      metric_namespace         = string<br>      metric_name              = string<br>      aggregation              = string<br>      operator                 = string<br>      alert_sensitivity        = optional(string, "Medium")<br>      evaluation_total_count   = optional(number, 4)<br>      evaluation_failure_count = optional(number, 4)<br>      ignore_data_before       = optional(string)<br>      skip_metric_validation   = optional(bool, false)<br>      dimension = optional(list(object({<br>        name     = string<br>        operator = optional(string, "Include")<br>        values   = list(string)<br>      })), [])<br>    })), [])<br><br>    application_insights_web_test_location_availability_criteria = optional(object({<br>      web_test_id           = string<br>      component_id          = string<br>      failed_location_count = number<br>    }), null)<br>  }))</pre> | `{}` | no |
+| monitor\_location | Azure Activity Log alert location. | `string` | `"global"` | no |
 | name\_prefix | Optional prefix for the generated name | `string` | `""` | no |
 | name\_suffix | Optional suffix for the generated name | `string` | `""` | no |
 | resource\_group\_name | Resource group name. | `string` | n/a | yes |
-| service\_health | A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert | <pre>object({<br>    events    = optional(string, "Incident")<br>    locations = optional(string, "Global")<br>    services  = optional(string)<br>  })</pre> | `null` | no |
+| service\_health | A block supports the following: `events`, `locations` and `services`. https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert | <pre>object({<br>    events    = optional(list(string), ["Incident"])<br>    locations = optional(list(string), ["Global"])<br>    services  = optional(list(string))<br>  })</pre> | `null` | no |
 | stack | Project stack name. | `string` | n/a | yes |
 | use\_caf\_naming | Use the Azure CAF naming provider to generate default resource name. `custom_action_group_name` override this if set. Legacy default name is used if this is set to `false`. | `bool` | `true` | no |
 
