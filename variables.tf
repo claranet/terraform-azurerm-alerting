@@ -1,13 +1,3 @@
-variable "location" {
-  description = "Azure location."
-  type        = string
-  default     = "global"
-  validation {
-    condition     = contains(["global", "northeurope", "westeurope"], var.location)
-    error_message = "Location must be one of: global, northeurope, westeurope"
-  }
-}
-
 variable "location_short" {
   description = "Short string for Azure location."
   type        = string
@@ -133,4 +123,14 @@ variable "metric_alerts" {
   }))
 
   default = {}
+}
+
+variable "monitor_location" {
+  description = "Azure Activity Log alert location."
+  type        = string
+  default     = "global"
+  validation {
+    condition     = contains(["global", "northeurope", "westeurope"], var.monitor_location)
+    error_message = "Location must be one of: global, northeurope, westeurope"
+  }
 }
