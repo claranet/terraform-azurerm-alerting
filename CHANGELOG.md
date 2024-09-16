@@ -1,3 +1,26 @@
+## 7.3.0 (2024-09-16)
+
+### Features
+
+* **AZ-1454:** add support of location variable 0667029
+
+### Bug Fixes
+
+* **AZ-1454:** fix bad types on service_health variable 55f4f52
+
+### Miscellaneous Chores
+
+* **AZ-1454:** rename location variable 758d00e
+* **deps:** update dependency opentofu to v1.8.2 74afa4d
+* **deps:** update dependency trivy to v0.55.0 a6090aa
+* **deps:** update dependency trivy to v0.55.1 91bb105
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.18.0 5923330
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.94.1 2de6dbb
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.94.2 869270a
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.94.3 1a4901c
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.95.0 33d079d
+* **deps:** update pre-commit hook antonbabenko/pre-commit-terraform to v1.96.0 70f9cdf
+
 ## 7.2.2 (2024-08-30)
 
 ### Bug Fixes
