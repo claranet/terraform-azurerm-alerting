@@ -1,4 +1,9 @@
-resource "azurerm_monitor_activity_log_alert" "activity_log_alert" {
+moved {
+  from = azurerm_monitor_activity_log_alert.activity_log_alert
+  to   = azurerm_monitor_activity_log_alert.main
+}
+
+resource "azurerm_monitor_activity_log_alert" "main" {
   for_each = var.activity_log_alerts
 
   name        = coalesce(each.value.custom_name, data.azurecaf_name.activity_log_alerts[each.key].result)
@@ -20,7 +25,7 @@ resource "azurerm_monitor_activity_log_alert" "activity_log_alert" {
     resource_id       = each.value.criteria.resource_id
 
     dynamic "service_health" {
-      for_each = var.service_health == null ? [] : ["enabled"]
+      for_each = var.service_health[*]
       content {
         events    = var.service_health.events
         locations = var.service_health.locations
@@ -30,7 +35,7 @@ resource "azurerm_monitor_activity_log_alert" "activity_log_alert" {
   }
 
   action {
-    action_group_id = azurerm_monitor_action_group.action_group_notification.id
+    action_group_id = azurerm_monitor_action_group.main.id
 
     webhook_properties = {
       from = "terraform"

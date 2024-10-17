@@ -1,4 +1,9 @@
-resource "azurerm_monitor_metric_alert" "metric_alert" {
+moved {
+  from = azurerm_monitor_metric_alert.metric_alert
+  to   = azurerm_monitor_metric_alert.main
+}
+
+resource "azurerm_monitor_metric_alert" "main" {
   for_each = var.metric_alerts
 
   name        = coalesce(each.value.custom_name, data.azurecaf_name.metric_alerts[each.key].result)
@@ -82,7 +87,7 @@ resource "azurerm_monitor_metric_alert" "metric_alert" {
   }
 
   action {
-    action_group_id = azurerm_monitor_action_group.action_group_notification.id
+    action_group_id = azurerm_monitor_action_group.main.id
 
     webhook_properties = {
       from = "terraform"

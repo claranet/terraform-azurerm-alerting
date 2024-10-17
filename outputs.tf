@@ -1,19 +1,24 @@
-output "action_group_id" {
+output "resource" {
+  description = "Notification Action Group resource object."
+  value       = azurerm_monitor_action_group.main
+}
+
+output "id" {
   description = "Notification Action Group ID."
-  value       = azurerm_monitor_action_group.action_group_notification.id
+  value       = azurerm_monitor_action_group.main.id
 }
 
-output "action_group_name" {
+output "name" {
   description = "Notification Action Group name."
-  value       = azurerm_monitor_action_group.action_group_notification.name
+  value       = azurerm_monitor_action_group.main.name
 }
 
-output "activity_log_alerts" {
-  description = "Activity log alerts attributes."
-  value       = azurerm_monitor_activity_log_alert.activity_log_alert
+output "resource_activity_log_alerts" {
+  description = "Activity log alerts resource objects."
+  value       = azurerm_monitor_activity_log_alert.main
 }
 
-output "metric_alerts" {
-  description = "Metric alerts attributes."
-  value       = azurerm_monitor_metric_alert.metric_alert
+output "resource_metric_alerts" {
+  description = "Metric alerts resource objects."
+  value       = azurerm_monitor_metric_alert.main
 }
