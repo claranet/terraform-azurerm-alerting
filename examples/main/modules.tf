@@ -1,20 +1,3 @@
-module "azure_region" {
-  source  = "claranet/regions/azurerm"
-  version = "x.x.x"
-
-  azure_region = var.azure_region
-}
-
-module "rg" {
-  source  = "claranet/rg/azurerm"
-  version = "x.x.x"
-
-  location    = module.azure_region.location
-  client_name = var.client_name
-  environment = var.environment
-  stack       = var.stack
-}
-
 module "alerting" {
   source  = "claranet/alerting/azurerm"
   version = "x.x.x"
@@ -24,7 +7,7 @@ module "alerting" {
   environment    = var.environment
   stack          = var.stack
 
-  resource_group_name     = module.rg.resource_group_name
+  resource_group_name     = module.rg.name
   action_group_short_name = "Alerting"
 
   action_group_webhooks = {
@@ -35,7 +18,7 @@ module "alerting" {
   activity_log_alerts = {
     "service-health" = {
       description         = "ServiceHealth global Subscription alerts"
-      resource_group_name = module.rg.resource_group_name
+      resource_group_name = module.rg.name
       scopes              = [format("/subscriptions/%s", var.azure_subscription_id)]
       criteria = {
         category = "ServiceHealth"
@@ -45,7 +28,7 @@ module "alerting" {
     "security-center" = {
       custom_name         = "${var.stack}-global-security-center"
       description         = "Security Center global Subscription alerts"
-      resource_group_name = module.rg.resource_group_name
+      resource_group_name = module.rg.name
       scopes              = [format("/subscriptions/%s", var.azure_subscription_id)]
       criteria = {
         category = "Security"
@@ -56,7 +39,7 @@ module "alerting" {
     "advisor" = {
       custom_name         = "${var.stack}-global-advisor-alerts"
       description         = "Advisor global Subscription alerts"
-      resource_group_name = module.rg.resource_group_name
+      resource_group_name = module.rg.name
       scopes              = [format("/subscriptions/%s", var.azure_subscription_id)]
       criteria = {
         category = "Recommendation"
@@ -67,7 +50,7 @@ module "alerting" {
     "managed-disks" = {
       custom_name         = "${var.stack}-global-managed-disks-alerts"
       description         = "Azure disks movements alerts"
-      resource_group_name = module.rg.resource_group_name
+      resource_group_name = module.rg.name
       scopes              = [format("/subscriptions/%s", var.azure_subscription_id)]
       criteria = {
         category      = "Administrative"
@@ -81,9 +64,9 @@ module "alerting" {
   metric_alerts = {
     "cpu-usage" = {
       description         = "CPU usage alert"
-      resource_group_name = module.rg.resource_group_name
+      resource_group_name = module.rg.name
       scopes = [
-        format("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/virtualMachines/%s", var.azure_subscription_id, module.rg.resource_group_name, "myVM")
+        format("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Compute/virtualMachines/%s", var.azure_subscription_id, module.rg.name, "myVM")
       ]
       criteria = [
         {

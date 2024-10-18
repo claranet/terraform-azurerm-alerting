@@ -1,5 +1,10 @@
-resource "azurerm_monitor_action_group" "action_group_notification" {
-  name                = local.action_group_name
+moved {
+  from = azurerm_monitor_action_group.action_group_notification
+  to   = azurerm_monitor_action_group.main
+}
+
+resource "azurerm_monitor_action_group" "main" {
+  name                = local.name
   resource_group_name = var.resource_group_name
   short_name          = var.action_group_short_name
 
