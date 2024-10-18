@@ -1,3 +1,27 @@
+## 8.0.0 (2024-10-18)
+
+### ⚠ BREAKING CHANGES
+
+* **AZ-1088:** AzureRM Provider v4+ and OpenTofu 1.8+
+
+Co-authored-by: Alan Boutilly <alan.boutilly@claranet.com>
+
+### Features
+
+* **AZ-1088:** module v8 structure and updates 41d2484
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.3 46ca204
+* **deps:** update dependency pre-commit to v4 275d7a7
+* **deps:** update dependency trivy to v0.56.0 bf10591
+* **deps:** update dependency trivy to v0.56.1 0d9bd6d
+* **deps:** update dependency trivy to v0.56.2 826814f
+* **deps:** update pre-commit hook pre-commit/pre-commit-hooks to v5 df0fbc4
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.1.0 d7b96b8
+* prepare for new examples structure 689f12e
+* update examples structure 0d0a877
+
 ## 7.4.0 (2024-10-03)
 
 ### Features
