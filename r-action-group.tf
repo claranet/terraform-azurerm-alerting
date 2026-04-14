@@ -27,5 +27,15 @@ resource "azurerm_monitor_action_group" "main" {
     }
   }
 
+  dynamic "logic_app_receiver" {
+    for_each = var.action_group_logic_app_receiver
+    content {
+      name                    = logic_app_receiver.key
+      resource_id             = logic_app_receiver.value.resource_id
+      callback_url            = logic_app_receiver.value.callback_url
+      use_common_alert_schema = true
+    }
+  }
+
   tags = merge(local.default_tags, var.extra_tags)
 }

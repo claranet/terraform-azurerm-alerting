@@ -19,6 +19,15 @@ variable "existing_action_groups" {
   default = []
 }
 
+variable "action_group_logic_app_receiver" {
+  description = "Map of Logic Apps to notify. Example: `{ ml-devops = { resource_id = '/subscriptions/xxxx/resourceGroups/xxxx/providers/Microsoft.Logic/workflows/xxxx', callback_url = 'https://xxxx' } }`."
+  type = map(object({
+    resource_id  = string
+    callback_url = string
+  }))
+  default = {}
+}
+
 variable "activity_log_alerts" {
   description = "Map of Activity log Alerts."
   type = map(object({
