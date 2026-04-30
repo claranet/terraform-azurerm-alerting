@@ -88,9 +88,16 @@ resource "azurerm_monitor_metric_alert" "main" {
 
   action {
     action_group_id = azurerm_monitor_action_group.main.id
-
     webhook_properties = {
       from = "terraform"
+    }
+  }
+
+  dynamic "action" {
+    for_each = var.existing_action_groups
+    content {
+      action_group_id    = action.value.id
+      webhook_properties = action.value.webhook_properties
     }
   }
 

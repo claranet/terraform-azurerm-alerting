@@ -10,6 +10,15 @@ variable "action_group_emails" {
   default     = {}
 }
 
+variable "existing_action_groups" {
+  description = "List of existing Action Groups to associate with alerts."
+  type = list(object({
+    id                 = string
+    webhook_properties = optional(map(string))
+  }))
+  default = []
+}
+
 variable "activity_log_alerts" {
   description = "Map of Activity log Alerts."
   type = map(object({
