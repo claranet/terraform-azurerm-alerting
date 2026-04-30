@@ -1,3 +1,16 @@
+## 8.1.0 (2026-04-30)
+
+### Features
+
+* ✨ add `existing_action_groups` variable to associate alerts with existing action groups cbf8c21
+
+### Miscellaneous Chores
+
+* **deps:** 🔗 update mise conf for OpenTofu fac80b5
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.3.0 0eed1c4
+* **deps:** update tools ee37d0a
+* **pre-commit:** 🔧 move to prek 7387878
+
 ## 8.0.3 (2026-03-27)
 
 ### Bug Fixes
