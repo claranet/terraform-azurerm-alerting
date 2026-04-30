@@ -28,7 +28,7 @@ resource "azurerm_monitor_action_group" "main" {
   }
 
   dynamic "logic_app_receiver" {
-    for_each = var.action_group_logic_app_receiver
+    for_each = var.action_group_logic_app_receivers
     content {
       name                    = logic_app_receiver.key
       resource_id             = logic_app_receiver.value.resource_id
