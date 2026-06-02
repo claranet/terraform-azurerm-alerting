@@ -1,6 +1,7 @@
 output "resource" {
   description = "Notification Action Group resource object."
   value       = azurerm_monitor_action_group.main
+  sensitive   = true
 }
 
 output "id" {
@@ -16,9 +17,11 @@ output "name" {
 output "resource_activity_log_alerts" {
   description = "Activity log alerts resource objects."
   value       = azurerm_monitor_activity_log_alert.main
+  sensitive   = true
 }
 
 output "resource_metric_alerts" {
   description = "Metric alerts resource objects."
   value       = azurerm_monitor_metric_alert.main
+  sensitive   = true
 }
