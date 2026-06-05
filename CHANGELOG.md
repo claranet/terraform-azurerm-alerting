@@ -1,3 +1,20 @@
+## 8.2.0 (2026-06-05)
+
+### Features
+
+* **az-1653:** add logicapp action 91d0cc4
+* **az-1653:** add logicapp action aa6b100
+* **az-1653:** add logicapp action e02ddfb
+* **az-1653:** add logicapp actiony e744288
+
+### Documentation
+
+* **readme:** format markdown table separators f68ef17
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.12.1 2b04c72
+
 ## 8.1.1 (2026-06-02)
 
 ### Bug Fixes
