@@ -128,7 +128,7 @@ module "alerting" {
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | azurecaf | >= 1.2.28 |
 | azurerm | ~> 4.31 |
 
@@ -139,7 +139,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [azurerm_monitor_action_group.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_action_group) | resource |
 | [azurerm_monitor_activity_log_alert.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_activity_log_alert) | resource |
 | [azurerm_monitor_metric_alert.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert) | resource |
@@ -150,7 +150,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | action\_group\_emails | Map of Emails to notify. Example: `{ ml-devops = devops@contoso.com }`. | `map(string)` | `{}` | no |
 | action\_group\_logic\_app\_receivers | Map of Logic Apps to notify. Example: `{ ml-devops = { resource_id = '/subscriptions/xxxx/resourceGroups/xxxx/providers/Microsoft.Logic/workflows/xxxx', callback_url = 'https://xxxx' } }`. | <pre>map(object({<br/>    resource_id  = string<br/>    callback_url = string<br/>  }))</pre> | `{}` | no |
 | action\_group\_short\_name | Action Group short name. | `string` | n/a | yes |
@@ -174,7 +174,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | id | Notification Action Group ID. |
 | name | Notification Action Group name. |
 | resource | Notification Action Group resource object. |
